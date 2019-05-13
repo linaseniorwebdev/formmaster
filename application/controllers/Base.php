@@ -31,6 +31,15 @@ class Base extends CI_Controller {
 	}
 
 	/**
+	 * Load sidebar with active items
+	 * @param $com
+	 * @param null $sub
+	 */
+	public function load_sidebar($com, $sub = null) {
+		$this->load->view('admin/sidebar', array('com' => $com, 'sub' => $sub));
+	}
+
+	/**
 	 * Load footer file
 	 * @param null $admin
 	 * @param null $name

@@ -63,7 +63,7 @@
 		<nav class="ml-5">
 			<ul class="nav-list">
 				<li class="nav-item ">
-					<a href="<?=base_url('form/lists')?>" class="nav__link">BROWSE FORMS</a>
+					<a href="<?=base_url('form/list')?>" class="nav__link">BROWSE FORMS</a>
 				</li>
 			</ul>
 		</nav>
@@ -72,7 +72,17 @@
 
 <div class="login-area">
 	<div class="container">
-
+		<h3>List of all forms created</h3>
+		<div class="row">
+			<?php
+			foreach ($forms as $form) {
+				echo '<div class="col-md-12">';
+				echo '<a href="' . base_url('form/view/' . $form['name']) . '">';
+				echo $form['name'];
+				echo '</a></div>';
+			}
+			?>
+		</div>
 	</div>
 </div>
 

@@ -28,7 +28,7 @@ class Admin_model extends CI_Model {
 	 * @param $params
 	 * @return mixed
 	 */
-	public function add_user($params) {
+	public function add_admin($params) {
 		$this->db->insert('admins', $params);
 		return $this->db->insert_id();
 	}
@@ -39,7 +39,7 @@ class Admin_model extends CI_Model {
 	 * @param $params
 	 * @return mixed
 	 */
-	public function update_user($admin_id, $params) {
+	public function update_admin($admin_id, $params) {
 		$this->db->where('id', $admin_id);
 		return $this->db->update('admins', $params);
 	}

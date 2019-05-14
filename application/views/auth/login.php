@@ -41,7 +41,7 @@
 						<i class="ti-lock"></i>
 					</div>
 					<div class="submit-btn-area">
-						<input type="hidden" name="<?=$csrf['name'];?>" value="<?=$csrf['hash'];?>" />
+						<input type="hidden" name="<?=$csrf['name']?>" value="<?=$csrf['hash']?>" />
 						<button type="submit">Submit <i class="ti-arrow-right"></i></button>
 					</div>
 				</div>

@@ -61,7 +61,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</div>
 			</div>
 			<div class="text-center mt-3">
-				<button class="btn btn-success" type="button">
+				<button class="btn btn-success" type="button" onclick="doConfirmation()">
 					Confirm & Save
 				</button>
 			</div>
@@ -69,6 +69,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<!-- / Building Form. -->
 	</div>
 </div>
+<script src="public/core/js/vendor/jquery-2.2.4.min.js"></script>
 <script data-main="public/js/main-built.js" src="public/js/lib/require.js" ></script>
+<script>
+	let uid = "<?=$uid?>";
+
+	$(document).ready(function() {
+
+	});
+
+	function doConfirmation() {
+		let form = $('#render').val();
+		$.post(
+			"<?=base_url('admin/form/save')?>",
+			{
+				<?=$csrf['name']?>: "<?=$csrf['hash']?>",
+				uid: uid,
+				form: form
+			},
+			function(data) {
+				console.log(data);
+			}
+		);
+	}
+</script>
 </body>
 </html>

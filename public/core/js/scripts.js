@@ -5,18 +5,22 @@
     /*================================
     Preloader
     ==================================*/
-
-    var preloader = $('#preloader');
-    $(window).on('load', function() {
-        preloader.fadeOut('slow', function() { $(this).remove(); });
-    });
+    let $preloader = $('#preloader');
+    if ($preloader.length) {
+        $(window).on('load', function() {
+            $preloader.fadeOut('slow', function() { $(this).remove(); });
+        });
+    }
 
     /*================================
     sidebar collapsing
     ==================================*/
-    $('.nav-btn').on('click', function() {
-        $('.page-container').toggleClass('sbar_collapsed');
-    });
+    let $nav_btn = $('.nav-btn');
+    if ($nav_btn.length) {
+        $nav_btn.on('click', function() {
+            $('.page-container').toggleClass('sbar_collapsed');
+        });
+    }
 
     /*================================
     Start Footer resizer
@@ -25,59 +29,82 @@
         var e = (window.innerHeight > 0 ? window.innerHeight : this.screen.height) - 5;
         (e -= 67) < 1 && (e = 1), e > 67 && $(".main-content").css("min-height", e + "px")
     };
-    $(window).ready(e), $(window).on("resize", e);
+    $(window).ready(e); $(window).on("resize", e);
 
     /*================================
     sidebar menu
     ==================================*/
-    $("#menu").metisMenu();
+    let $menu = $("#menu");
+    if ($menu.length) {
+        $menu.metisMenu();
+    }
 
     /*================================
     slimscroll activation
     ==================================*/
-    $('.menu-inner').slimScroll({
-        height: 'auto'
-    });
-    $('.nofity-list').slimScroll({
-        height: '435px'
-    });
-    $('.timeline-area').slimScroll({
-        height: '500px'
-    });
-    $('.recent-activity').slimScroll({
-        height: 'calc(100vh - 114px)'
-    });
-    $('.settings-list').slimScroll({
-        height: 'calc(100vh - 158px)'
-    });
+    let $menu_inner = $('.menu-inner');
+    if ($menu_inner.length) {
+        $menu_inner.slimScroll({
+            height: 'auto'
+        });
+    }
+
+    let $nofity_list = $('.nofity-list');
+    if ($nofity_list.length) {
+        $nofity_list.slimScroll({
+            height: '435px'
+        });
+    }
+
+    let $timeline_area = $('.timeline-area');
+    if ($timeline_area.length) {
+        $timeline_area.slimScroll({
+            height: '500px'
+        });
+    }
+
+    let $recent_activity = $('.recent-activity');
+    if ($recent_activity.length) {
+        $recent_activity.slimScroll({
+            height: 'calc(100vh - 114px)'
+        });
+    }
+
+    let $settings_list = $('.settings-list');
+    if ($settings_list.length) {
+        $settings_list.slimScroll({
+            height: 'calc(100vh - 158px)'
+        });
+    }
 
     /*================================
     stickey Header
     ==================================*/
+    let $sticky_header = $('#sticky-header');
     $(window).on('scroll', function() {
-        var scroll = $(window).scrollTop(),
-            mainHeader = $('#sticky-header'),
+        let scroll = $(window).scrollTop(),
+            mainHeader = $sticky_header,
             mainHeaderHeight = mainHeader.innerHeight();
 
         // console.log(mainHeader.innerHeight());
         if (scroll > 1) {
-            $("#sticky-header").addClass("sticky-menu");
+            $sticky_header.addClass("sticky-menu");
         } else {
-            $("#sticky-header").removeClass("sticky-menu");
+            $sticky_header.removeClass("sticky-menu");
         }
     });
 
     /*================================
     form bootstrap validation
     ==================================*/
-    $('[data-toggle="popover"]').popover()
+    $('[data-toggle="popover"]').popover();
 
     /*------------- Start form Validation -------------*/
     window.addEventListener('load', function() {
         // Fetch all the forms we want to apply custom Bootstrap validation styles to
-        var forms = document.getElementsByClassName('needs-validation');
+        let forms = document.getElementsByClassName('needs-validation');
         // Loop over them and prevent submission
-        var validation = Array.prototype.filter.call(forms, function(form) {
+        let validation = Array.prototype.filter.call(forms, function(form) {
             form.addEventListener('submit', function(event) {
                 if (form.checkValidity() === false) {
                     event.preventDefault();
@@ -91,18 +118,23 @@
     /*================================
     datatable active
     ==================================*/
-    if ($('#dataTable').length) {
-        $('#dataTable').DataTable({
+    let $datatable = $('#dataTable');
+    if ($datatable.length) {
+        $datatable.DataTable({
             responsive: true
         });
     }
-    if ($('#dataTable2').length) {
-        $('#dataTable2').DataTable({
+
+    let $datatable2 = $('#dataTable2');
+    if ($datatable2.length) {
+        $datatable2.DataTable({
             responsive: true
         });
     }
-    if ($('#dataTable3').length) {
-        $('#dataTable3').DataTable({
+
+    let $datatable3 = $('#dataTable3');
+    if ($datatable3.length) {
+        $datatable3.DataTable({
             responsive: true
         });
     }
@@ -139,33 +171,36 @@
     Owl Carousel
     ==================================*/
     function slider_area() {
-        var owl = $('.testimonial-carousel').owlCarousel({
-            margin: 50,
-            loop: true,
-            autoplay: false,
-            nav: false,
-            dots: true,
-            responsive: {
-                0: {
-                    items: 1
-                },
-                450: {
-                    items: 1
-                },
-                768: {
-                    items: 2
-                },
-                1000: {
-                    items: 2
-                },
-                1360: {
-                    items: 1
-                },
-                1600: {
-                    items: 2
+        let $testimonial_carousel = $('.testimonial-carousel');
+        if ($testimonial_carousel.length) {
+            let owl = $testimonial_carousel.owlCarousel({
+                margin: 50,
+                loop: true,
+                autoplay: false,
+                nav: false,
+                dots: true,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    450: {
+                        items: 1
+                    },
+                    768: {
+                        items: 2
+                    },
+                    1000: {
+                        items: 2
+                    },
+                    1360: {
+                        items: 1
+                    },
+                    1600: {
+                        items: 2
+                    }
                 }
-            }
-        });
+            });
+        }
     }
     slider_area();
 

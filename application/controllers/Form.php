@@ -9,6 +9,6 @@ require_once APPPATH . 'controllers/Base.php';
 class Form extends Base {
 
 	public function index() {
-
+		$this->load->view('front/index');
 	}
 }

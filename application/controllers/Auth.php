@@ -8,14 +8,6 @@ require_once APPPATH . 'controllers/Base.php';
 
 class Auth extends Base {
 
-	public function __construct() {
-		parent::__construct();
-
-		if ($this->admin) {
-			redirect('admin');
-		}
-	}
-
 	public function index() {
 		if ($this->admin) {
 			redirect('admin');
@@ -47,5 +39,10 @@ class Auth extends Base {
 			}
 		}
 		$this->load->view('auth/login', array('csrf' => $csrf, 'message' => $message));
+	}
+
+	public function logout() {
+		$this->session->unset_userdata('admin');
+		redirect('/');
 	}
 }

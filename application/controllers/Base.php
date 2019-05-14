@@ -13,7 +13,7 @@ class Base extends CI_Controller {
 		parent::__construct();
 
 		if ($this->session->admin) {
-			$this->admin = $this->session->admin;
+			$this->admin = true;
 		}
 	}
 
@@ -42,12 +42,12 @@ class Base extends CI_Controller {
 	/**
 	 * Load footer file
 	 * @param null $admin
-	 * @param null $name
+	 * @param null $params
 	 */
-	public function load_footer($admin = null, $name = null) {
+	public function load_footer($admin = null, $params = null) {
 		if ($admin) {
-			if ($name) {
-				$this->load->view('admin/footer', array('name' => $name));
+			if ($params) {
+				$this->load->view('admin/footer', $params);
 			} else {
 				$this->load->view('admin/footer');
 			}

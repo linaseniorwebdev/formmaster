@@ -18,6 +18,7 @@
 
 <script src="public/core/js/plugins.js"></script>
 <script src="public/core/js/scripts.js"></script>
+
 <?php
 if (isset($name)) {
 	echo '<script src="public/core/custom/admin/' . $name . '.js"></script>';
